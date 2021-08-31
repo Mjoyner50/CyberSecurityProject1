@@ -54,7 +54,7 @@ The configuration details of each machine may be found below.
 The machines on the internal network are not exposed to the public Internet. 
 
 Only the Jumpbox machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:
-   - (LocalHostIP)
+   - (LocalHostIP) **Note** This is your public IP address
 
 Machines within the network can only be accessed by the Jumpbox machine.
    - Which machine did you allow to access your ELK VM? 
@@ -68,10 +68,10 @@ Summary of the access policies in place can be found in the table below.
 | Name     | Publicly Accessible | Allowed IP Addresses |
 |----------|---------------------|----------------------|
 | Jump Box | Yes                 | LocalHost Public IP  |
-| Elk      |                     | 10.1.0.6             |
-| Web-1    | No                  | 10.0.0.9             |
-| Web-2    | No                  | 10.0.0.10            |
-| Web-3    | No                  | 10.0.0.11            |
+| Elk      | No                  | 10.0.0.1-254         |
+| Web-1    | No                  | 10.0.0.1-254         |
+| Web-2    | No                  | 10.0.0.1-254         |
+| Web-3    | No                  | 10.0.0.1-254         |
 
 ### Elk Configuration
 
