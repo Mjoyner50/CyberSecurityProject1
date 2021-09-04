@@ -4,7 +4,7 @@
 
 [Azure Cloud Network](https://github.com/CavemanGabe/CyberSecurityProject1/blob/main/Diagrams/Azure%20Cloud%20Network%20Diagram.jpg)
 
-*These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the Project 1 Red-Team Network Diagram file may be used to install only certain pieces of it, such as Filebeat.
+*These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the Azure Cloud Network Diagram file may be used to install only certain pieces of it, such as Filebeat.
 
    [filebeat-playbook.yml](https://github.com/CavemanGabe/CyberSecurityProject1/blob/main/Ansible/filebeat-playbook.yml) 
    
@@ -136,6 +136,12 @@ _Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdow
 
 SSH into the control node and follow the steps below:
 
+---ELK---
+
+- Copy the install-elk.yml file to /etc/ansible
+- Update the Ansible-hosts file to include a "webservers" section and an "elk" section.
+- Run the playbook, ssh into ELK-VM and run "docker ps" to verify installation worked as expected.
+
 ---Filebeat---
 
 - Copy the filebeat-config.yml file to /etc/ansible.
@@ -150,7 +156,7 @@ SSH into the control node and follow the steps below:
 
 _Answer the following questions to fill in the blanks:_
 
-- _Which file is the playbook? filebeat-playbook.yml
+- _Which file is the playbook? install-elk.yml
 - _Where do you copy it? /etc/ansible
 - _Which file do you update to make Ansible run the playbook on a specific machine? /etc/ansible/hosts file (IP of the Virtual Machines). 
 - _How do I specify which machine to install the ELK server on versus which to install Filebeat on? I have to specify two separate groups in the etc/ansible/hosts file. One of the groups will be webservers which has the IPs of the VMs that I will install Filebeat to. The other group is named elkservers which will have the IP of the VM I will install ELK to.
