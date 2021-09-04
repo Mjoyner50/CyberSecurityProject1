@@ -173,7 +173,7 @@ _Setting up Filebeat and Metricbeat. A step by step guide._
 
       -------Filebeat---------
 
-	- To create the filebeat-configuration.yml file: nano filebeat-configuration.yml. For this, I used the filebeat configuration file template.
+	- To create the filebeat-config.yml file: nano filebeat-config.yml. For this, I used the filebeat configuration file template.
 	
 	- To create the playbook: nano filebeat-playbook.yml
 	
@@ -205,12 +205,12 @@ _Setting up Filebeat and Metricbeat. A step by step guide._
 	---
 	-To run the playbook: ansible-playbook filebeat-playbook.yml
 	
-	* In order to run the playbook, you have to be in the directory the playbook is at, or give the path to it (ansible-playbook /etc/ansible/roles/filebeat-playbook.yml
+	* In order to run the playbook, you have to be in the directory the playbook is at, or give the path to it (ansible-playbook /etc/ansible/filebeat-playbook.yml
 	
 	
 	-------Metricbeat-------
 	
-	- To create the metricbeat-configuration.yml file: nano metricbeat-configuration.yml. For this, I used the metricbeat configuration file template.
+	- To create the metricbeat-config.yml file: nano metricbeat-config.yml. For this, I used the metricbeat configuration file template.
 	
 	- To create the playbool: nano metricbeat-playbook.yml
 	
@@ -244,5 +244,5 @@ _Setting up Filebeat and Metricbeat. A step by step guide._
 	   
 	   - To run the playbook: ansible-playbook metricbeat-playbook.yml
 	   
-	   * To order to run the playbook, you have to be in the directory the playbook is at, or give the path to it (ansible-playbook /etc/ansible/roles/metricbeat-playbook.yml 
+	   * To order to run the playbook, you have to be in the directory the playbook is at, or give the path to it (ansible-playbook /etc/ansible/metricbeat-playbook.yml 
 
