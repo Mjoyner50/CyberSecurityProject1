@@ -36,7 +36,7 @@
 	-Throughout the years, jump-box has improved into an even more comprehensive/lock-down secure admin workstation to decrease the chances of hackers/malware infection. 
 
 
-*Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the ___network and system logs.
+*Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the network and system logs.
 
 - What does Filebeat watch for?
 	- It monitors the log files/locations that you specify and forwards them to Elasticsearch/Logstash for indexing.
