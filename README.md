@@ -153,10 +153,15 @@ SSH into the control node and follow the steps below:
 
 _Answer the following questions to fill in the blanks:_
 
-- _Which file is the playbook? install-elk.yml
-- _Where do you copy it? /etc/ansible
-- _Which file do you update to make Ansible run the playbook on a specific machine? /etc/ansible/hosts file (IP of the Virtual Machines). 
-- _How do I specify which machine to install the ELK server on versus which to install Filebeat on? I have to specify two separate groups in the etc/ansible/hosts file. One of the groups will be webservers which has the IPs of the VMs that I will install Filebeat to. The other group is named elkservers which will have the IP of the VM I will install ELK to.
-- _Which URL do you navigate to in order to check that the ELK server is running? http://137.135.75.25:5601/ 
+- Which file is the playbook? 
+   - install-elk.yml
+- Where do you copy it? 
+   - /etc/ansible
+- Which file do you update to make Ansible run the playbook on a specific machine? 
+   - /etc/ansible/hosts file (IP of the Virtual Machines). 
+- How do I specify which machine to install the ELK server on versus which to install Filebeat on? 
+   - I have to specify two separate groups in the etc/ansible/hosts file. One of the groups will be webservers which has the IPs of the VMs that I will install Filebeat to. The other group is named elkservers which will have the IP of the VM I will install ELK to.
+- Which URL do you navigate to in order to check that the ELK server is running? 
+   - http://137.135.75.25:5601/ 
 
 
