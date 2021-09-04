@@ -97,7 +97,8 @@ _Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdow
 - In 3-5 bullets, explain the steps of the ELK installation play. E.g., install Docker; download image; etc._
 
 	- First, SSH into the Jump-Box-Provisioner (ssh admin@52.170.129.21)
-	- Start/Attached to the ansible docker: "sudo su", "docker start (container name)", "docker attach (container name)"
+	- Find name of ansible container: "sudo su", "docker container ls -a" (example name: zealous_yalow)
+	- Start/Attached to the ansible docker: "sudo su", "docker start zealous_yalow", "docker attach zealous_yalow"
 	- Went to /etc/ansible directory and created the ELK playbook (install-elk.yml)
 	- Ran the install-elk.yml in that same directory (ansible-playbook install-elk.yml)
 	- Lastly, SSH into the ELK-VM to verify the server is up and running.
