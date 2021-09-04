@@ -62,7 +62,7 @@ _Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdow
 
 - Only the jump-Box-Provisioner machine can accept connections from the Internet.
 - Access to this machine is only allowed from the following IP addresses:
-	- 71.59.34.72 (LocalHost IP address)
+	- (LocalHost IP address)
 
 *Machines within the network can only be accessed by Jump-Box-Provisioner
 
@@ -70,7 +70,7 @@ _Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdow
 	- Jump-Box-Provisioner  
 
 - What was its IP address?
-	- 10.0.0.4 (Private) 
+	- 10.0.0.8 (Private) 
 
 - A summary of the access policies in place can be found in the table below.
 
@@ -78,9 +78,9 @@ _Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdow
 |-----------------------|---------------------|----------------------|
 | Jump-Box-Provisioner  |       Yes           | Localhost Public IPV4|
 | ELK-VM*               |       No            | 10.0.0.8             |
-| Web-1*                |       No            | 10.0.0.4             |
-| Web-2*                |       No            | 10.0.0.4             |
-| Web-3*                |       No            | 10.0.0.4             |
+| Web-1*                |       No            | 10.0.0.9             |
+| Web-2*                |       No            | 10.0.0.10            |
+| Web-3*                |       No            | 10.0.0.11            |
 
 * --All these VMs can only be accessed form the Jump-Box-Provisioner--
 
@@ -96,15 +96,15 @@ _Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdow
 *The playbook implements the following tasks:
 - In 3-5 bullets, explain the steps of the ELK installation play. E.g., install Docker; download image; etc._
 
-	- First I, SSH into the Jump-Box-Provisioner (ssh redadmin@40.117.224.154)
-	- Start/Attached to the ansible docker (sudo docker start  tender_morse)/(sudo docker attach tender_morse)
-	- Went to /etc/ansible/roles directory and created the ELK playbook (Elk_Playbook.yml)
-	- Ran the Elk_Playbook.yml in that same directory (ansible-playbook Elk_Playbook.yml)
-	- Lastly, I SSH into the ELK-VM to verify the server is up and running.
+	- First, SSH into the Jump-Box-Provisioner (ssh admin@52.170.129.21)
+	- Start/Attached to the ansible docker: "sudo su", "docker start (container name)", "docker attach (container name)"
+	- Went to /etc/ansible directory and created the ELK playbook (install-elk.yml)
+	- Ran the install-elk.yml in that same directory (ansible-playbook install-elk.yml)
+	- Lastly, SSH into the ELK-VM to verify the server is up and running.
 
 *The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
-[ELK-VM Docker PS](https://github.com/CavemanGabe/CyberSecurityProject1/blob/main/Images/ELK-VM%20Docker%20PS.png)
+[ELK-VM "Docker PS"](https://github.com/CavemanGabe/CyberSecurityProject1/blob/main/Images/ELK-VM%20Docker%20PS.png)
 
 ### Target Machines & Beats
 *This ELK server is configured to monitor the following machines:
@@ -137,23 +137,23 @@ SSH into the control node and follow the steps below:
 
 ---Filebeat---
 
-- Copy the filebeat-configuration.yml file to /etc/ansible/roles/files.
-- Update the filebeat-configuration.yml file to include the ELK private IP in lines 1106 and 1806.
-- Run the playbook, and navigate to http://IPV4:5601/ (ELK-VM public IP) to check that the installation worked as expected.
+- Copy the filebeat-config.yml file to /etc/ansible.
+- Update the filebeat-config.yml file to include the ELK private IP in lines 1106 and 1806.
+- Run the playbook, and navigate to http://137.135.75.25:5601/ (ELK-VM public IP) to check that the installation worked as expected.
 
 ---Metricbeat---
 
 - Copy the metricbeat-configuration.yml file to /etc/ansible/roles/files.
 - Update the metricbeat-configuration.yml file to include the ELK private IP in lines 62 and 96.
-- Run the playbook, and navigate to http://IPV4:5601/ (ELK-VM public IP) to check that the installation worked as expected.
+- Run the playbook, and navigate to http://137.135.75.25:5601/ (ELK-VM public IP) to check that the installation worked as expected.
 
 _Answer the following questions to fill in the blanks:_
 
 - _Which file is the playbook? filebeat-playbook.yml
-- _Where do you copy it? /etc/ansible/roles
+- _Where do you copy it? /etc/ansible
 - _Which file do you update to make Ansible run the playbook on a specific machine? /etc/ansible/hosts file (IP of the Virtual Machines). 
 - _How do I specify which machine to install the ELK server on versus which to install Filebeat on? I have to specify two separate groups in the etc/ansible/hosts file. One of the groups will be webservers which has the IPs of the VMs that I will install Filebeat to. The other group is named elkservers which will have the IP of the VM I will install ELK to.
-- _Which URL do you navigate to in order to check that the ELK server is running? http://20.49.3.56:5601/ 
+- _Which URL do you navigate to in order to check that the ELK server is running? http://137.135.75.25:5601/ 
 
 _Setting up Filebeat and Metricbeat. A step by step guide._
 
@@ -239,11 +239,3 @@ _Setting up Filebeat and Metricbeat. A step by step guide._
 	   
 	   * To order to run the playbook, you have to be in the directory the playbook is at, or give the path to it (ansible-playbook /etc/ansible/roles/metricbeat-playbook.yml 
 
-Setting up Filebeat and Metricbeat. A step by step guide.
-
-1. Create filebeat-config.yml: nano filebeat-config.yml, paste text from provided file and update with correct ip addresses.
-2. Create filebeat-playbook.yml: nano filebeat-playbook, paste text from provided file. Verify correct "src" for absoulte path to filebeat-config.yml.
-3. Run playbook: "ansible-playbook filebeat-playbook.yml"
-4. Create metricbeat-config.yml: nano metricbeat-config.yml, paste text from provided file and update with correct ip addresses.
-5. Create metricbeat-playbook.yml: nano metricbeat-playbook, paste text from provided file. Verify correct "src" for absolute path to metricbeat-config.yml.
-6. Run playbook: "ansible-playbook metricbeat-playbook.yml"
