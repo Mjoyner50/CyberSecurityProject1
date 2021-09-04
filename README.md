@@ -149,7 +149,7 @@ SSH into the control node and follow the steps below:
 
 - Copy the install-elk.yml file to /etc/ansible
 - Update the Ansible-hosts file to include a "webservers" section and an "elk" section.
-- Run the playbook, ssh into ELK-VM and run "docker ps" to verify installation worked as expected.
+- Run the playbook (ansible-playbook install-elk.yml), ssh into ELK-VM and run "docker ps" to verify installation worked as expected.
 
 _Answer the following questions to fill in the blanks:_
 
